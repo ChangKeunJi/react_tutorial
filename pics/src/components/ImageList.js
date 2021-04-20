@@ -1,15 +1,13 @@
+import "./ImageList.css";
+import ImageCard from "./ImageCard";
+
 const ImageList = ({ images }) => {
-  const imageList = images.map(({ description, id, urls }) => {
-    return <img alt={description} key={id} src={urls.regular} />;
+  const imageList = images.map((image) => {
+    return <ImageCard key={image.id} image={image} />;
   });
 
-  return <div>{imageList}</div>;
+  // return <div className="image-list">{imageList}</div>;
+  return <div className="image-list">{imageList}</div>;
 };
 
 export default ImageList;
-
-//! Purpose of keys props
-// For perfomance reason
-
-// When React rerenders component, to compare and
-// render more efficiently with previous DOM.

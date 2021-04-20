@@ -10,12 +10,7 @@ class App extends Component {
   onSearchSubmit = async (term) => {
     const res = await unsplash.get("search/photos", {
       params: { query: term },
-      // Attach to url
     });
-
-    //! console.log(this);
-    // "this" becomes "this.props" of SearchBar component
-    // Because it gets called like this.props.onSubmit
 
     this.setState({ images: res.data.results });
   };
@@ -31,13 +26,3 @@ class App extends Component {
 }
 
 export default App;
-
-//! Flow
-
-// 1. Component renders itself without images
-// 2. onSearchSubmit method called
-// 3. Request made to unsplash
-// .. wait
-// 4. Request complete
-// 5. Set image data on state of App component
-// 6. App component rerenders and show images
