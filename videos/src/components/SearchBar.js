@@ -10,11 +10,10 @@ class SearchBar extends Component {
   onFormSubmit = (e) => {
     e.preventDefault();
 
-    //TODO:  We call callback from parent
+    this.props.onTermSubmit(this.state.term);
   };
 
   render() {
-    console.log(this.state.term);
     return (
       <div className="ui segment search-bar">
         <form onSubmit={this.onFormSubmit} className="ui form">
