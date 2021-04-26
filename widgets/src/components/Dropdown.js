@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ options, selected, onSelectedChange, label }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
   useEffect(() => {
-    console.log("effect!!");
     const onBodyClick = (e) => {
       if (ref.current.contains(e.target)) {
         return;
@@ -46,7 +45,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   return (
     <div className="ui form" ref={ref}>
       <div className="field">
-        <label className="label">Select A Color</label>
+        <label className="label">{label}</label>
         <div
           onClick={() => {
             setOpen(!open);
