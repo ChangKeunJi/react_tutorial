@@ -68,7 +68,6 @@ const App = () => {
     <div>
       <Header />
       <Route path="/">
-        {/* Single JSX inside Component is called children*/}
         <Accordian items={items} />
       </Route>
 
@@ -88,20 +87,6 @@ const App = () => {
       <Route path="/translate">
         <Translate />
       </Route>
-
-      {/* <Accordian items={items} /> */}
-      {/* <Search /> */}
-      {/* <button onClick={() => setShowDropdown(!showDropdown)}>
-        Toggle Dropdown
-      </button>
-      {showDropdown ? (
-        <Dropdown
-          selected={selected}
-          onSelectedChange={setSelected}
-          options={options}
-        />
-      ) : null} */}
-      {/* <Translate /> */}
     </div>
   );
 };

@@ -19,7 +19,6 @@ const Dropdown = ({ options, selected, onSelectedChange, label }) => {
 
     // React performs the cleanup when the component unmounts.
     return () => {
-      console.log("unmounted!!");
       document.body.removeEventListener("click", onBodyClick, {
         capture: true,
       });

@@ -8,7 +8,6 @@ const Search = () => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      console.log("2");
       setDebounceTerm(term);
     }, 1000);
 
@@ -18,7 +17,6 @@ const Search = () => {
   }, [term]);
 
   useEffect(() => {
-    console.log("1");
     const search = async () => {
       const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
         params: {

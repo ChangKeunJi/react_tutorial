@@ -6,7 +6,6 @@ const Convert = ({ language, text }) => {
   const [debounceText, setDebounceText] = useState(text);
 
   useEffect(() => {
-    console.log("1");
     const doTranslation = async () => {
       const { data } = await axios.post(
         "https://translation.googleapis.com/language/translate/v2",
@@ -29,8 +28,6 @@ const Convert = ({ language, text }) => {
   }, [language, debounceText]);
 
   useEffect(() => {
-    console.log("2");
-
     const timerId = setTimeout(() => {
       setDebounceText(text);
     }, 500);
