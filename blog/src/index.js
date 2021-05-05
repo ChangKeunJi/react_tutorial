@@ -1,16 +1,16 @@
 import ReactDOM from "react-dom";
+import "semantic-ui-css/semantic.min.css";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import "semantic-ui-css/semantic.min.css";
 
 import App from "./components/App";
-import combineReducers from "./reducers";
+import reducers from "./reducers";
 
 ReactDOM.render(
-  <Provider store={createStore(combineReducers)}>
+  <Provider store={createStore(reducers)}>
     <App />
   </Provider>,
-  document.querySelector("#root")
+  document.getElementById("root")
 );
 
 if (module.hot) {

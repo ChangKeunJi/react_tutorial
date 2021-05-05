@@ -9,8 +9,8 @@ class SongList extends Component {
         <div className="item" key={song.title}>
           <div className="right floated content">
             <button
-              className="ui button primary"
               onClick={() => this.props.selectSong(song)}
+              className="ui button primary"
             >
               Select
             </button>
@@ -23,25 +23,29 @@ class SongList extends Component {
 
   render() {
     // console.log(this.props);
-    // { selectSong:func(), songs: [..]}
-
+    // this.props ===  {songs:state.songs}
     return <div className="ui divided list">{this.renderList()}</div>;
   }
 }
 
-// Re-run everytime state has changed.
+// Grab the state and Pass to props
 const mapStateToProps = (state) => {
-  //  Returned value will be passed to props of Component
-
-  //   console.log(state);
+  // console.log(state);
+  // => {songs: .. , selectedSong: ..}
 
   return {
     songs: state.songs,
   };
+  // Returned value becomes props of component
 };
 
 export default connect(mapStateToProps, {
   selectSong: selectSong,
-  // Becomes props of Component
-  // Returned value passed to store.dispatch()
+  // Action creator is passed as props
 })(SongList);
+
+// "connect" is a React Component
+// If State has changed, Provider lets Connect know automatically
+
+// Action creator should be in connect.
+// So returned value from action creator can be dispatched
