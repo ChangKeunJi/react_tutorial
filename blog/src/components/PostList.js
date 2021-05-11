@@ -1,15 +1,20 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 
-import { fetchPosts } from "../actions";
+import { fetchPosts, fetchPostsAndUsers } from "../actions";
 import UserHeader from "./UserHeader";
 
 class PostList extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    // this.props.fetchPosts();
+    this.props.fetchPostsAndUsers();
   }
 
   renderList() {
+    if (this.props.posts.length === 0) {
+      return <div>Loading....</div>;
+    }
+
     return this.props.posts.map((post) => {
       return (
         <div className="item" key={post.id}>
@@ -40,6 +45,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   fetchPosts: fetchPosts,
+  fetchPostsAndUsers: fetchPostsAndUsers,
 })(PostList);
 
 //! Why do we have two console log
